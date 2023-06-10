@@ -1,0 +1,40 @@
+name:                bibtex-hs
+version:             0.1.0.0
+github:              "stschiff/bibtex-hs"
+license:             BSD3
+author:              "Stephan Schiffels"
+maintainer:          "stpehan_schiffels@mac.com"
+copyright:           "2023 Stephan Schiffels"
+synopsis:            A haskell library to read Bibtex-files
+category:            LaTeX
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/bibtex-hs#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies: parsec
+
+executables:
+  bibtex2json:
+    main:                Bibtex2JSON.hs
+    source-dirs:         execs
+    dependencies:
+    - bibtex-hs
+
+tests:
+  bibtex-hs-test:
+    main:                Spec.hs
+    source-dirs:         test
+    dependencies:
+    - bibtex-hs
+    - hspec

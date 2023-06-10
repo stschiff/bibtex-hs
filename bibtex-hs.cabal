@@ -1,0 +1,63 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           bibtex-hs
+version:        0.1.0.0
+synopsis:       A haskell library to read Bibtex-files
+description:    Please see the README on GitHub at <https://github.com/githubuser/bibtex-hs#readme>
+category:       LaTeX
+homepage:       https://github.com/stschiff/bibtex-hs#readme
+bug-reports:    https://github.com/stschiff/bibtex-hs/issues
+author:         Stephan Schiffels
+maintainer:     stpehan_schiffels@mac.com
+copyright:      2023 Stephan Schiffels
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/stschiff/bibtex-hs
+
+library
+  exposed-modules:
+      BibTeX
+  other-modules:
+      Paths_bibtex_hs
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , parsec
+  default-language: Haskell2010
+
+executable bibtex2json
+  main-is: Bibtex2JSON.hs
+  other-modules:
+      Paths_bibtex_hs
+  hs-source-dirs:
+      execs
+  build-depends:
+      base >=4.7 && <5
+    , bibtex-hs
+  default-language: Haskell2010
+
+test-suite bibtex-hs-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      BibTexSpec
+      Paths_bibtex_hs
+  hs-source-dirs:
+      test
+  build-depends:
+      base >=4.7 && <5
+    , bibtex-hs
+    , hspec
+  default-language: Haskell2010
